@@ -1,0 +1,23 @@
+.home {
+    width: 100vw;
+}
+
+.main {
+    width: 100%;
+    position: fixed;
+    top: 66px;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar-wrap {
+    width: 8.33333%;
+    min-width: 85px;
+    height: 100vh;
+}
+
+.home-content {
+    width: 91.66667%;
+    height: 100vh;
+}

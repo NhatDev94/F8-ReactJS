@@ -15,6 +15,7 @@ function Hero(props) {
             const res = await api.getHeros(signal)
             setHeros(res)
         }
+        getHeros()
 
         return () => {
             controler.abort()

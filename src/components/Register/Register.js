@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState , useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react/cjs/react.development";
 import * as validate from '../../validate/validate'
 import * as api from '../../api/api'
 

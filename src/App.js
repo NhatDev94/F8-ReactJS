@@ -29,8 +29,8 @@ function App() {
   }
 
   function logOut() {
-    console.log('out');
     localStorage.setItem('f8-login', JSON.stringify(null))
+    localStorage.setItem('f8-curr-lesson', JSON.stringify(null))
     setUser(null)
   }
 

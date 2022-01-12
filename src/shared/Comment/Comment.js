@@ -4,6 +4,7 @@ import Recomment from '../Recomment/Recomment'
 
 import * as api from '../../api/api'
 import * as time from '../../service/time'
+import * as sort from '../../service/sort'
 
 import './comment.css'
 
@@ -153,7 +154,7 @@ function Comment(props) {
             <div className="list-recomment">
                 <div className='recomment-wrap'>
                     {
-                        props.comment.recomments && props.comment.recomments.map((recomment, index) => {
+                        props.comment.recomments && sort.sortByTime(props.comment.recomments).map((recomment, index) => {
                             return <Recomment
                                 key={index}
                                 recomment={recomment}

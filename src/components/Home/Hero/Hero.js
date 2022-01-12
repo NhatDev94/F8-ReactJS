@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import * as api from '../../../api/api'
 
@@ -7,6 +7,7 @@ import './hero.css'
 
 function Hero(props) {
     let [heros, setHeros] = useState([])
+    let countRef = useRef(0)
 
     useEffect(() => {
         let controler = new AbortController()
@@ -33,6 +34,17 @@ function Hero(props) {
             left: slideContent.scrollLeft + scrollWidth,
             behavior: 'smooth'
         })
+        if (action === 'next') {
+            if (countRef.current === heros.length - 1) return
+            countRef.current ++
+            closest.querySelector('span.active').classList.remove('active')
+            closest.querySelectorAll('.control span')[countRef.current].classList.add('active')
+            return
+        }
+        if (countRef.current === 0) return
+        countRef.current--
+        closest.querySelector('span.active').classList.remove('active')
+        closest.querySelectorAll('.control span')[countRef.current].classList.add('active')
     }
 
     function mouserOver(e, slide) {
@@ -43,6 +55,22 @@ function Hero(props) {
     function mouserLeave(e) {
         e.target.style.background = 'none'
         e.target.style.color = 'white'
+    }
+
+    function moveHero(target, index) {
+        countRef.current = index
+        let activeEl = target.closest('.control').querySelector('.active')
+        let spanEl = target.closest('span')
+        let slideContent = target.closest('.hero').querySelector('.hero-content')
+        let itemWidth = target.closest('.hero').querySelector('.hero-item').clientWidth
+        activeEl.classList.remove('active')
+        spanEl.classList.add('active')
+
+        slideContent.scrollTo({
+            top: 0,
+            left: itemWidth * index,
+            behavior: 'smooth'
+        })
     }
 
     return (
@@ -89,10 +117,15 @@ function Hero(props) {
                 </div>
             </div>
             <div className="control">
-                <span className="active"></span>
-                <span></span>
-                <span></span>
-                <span></span>
+                {
+                    heros && heros.map((hero, index) => {
+                        return <span 
+                                    key={index}
+                                    className={index === 0 ? 'active' : ''}
+                                    onClick={e => moveHero(e.target, index)}
+                                ></span>
+                    })
+                }
             </div>
         </div>
     )

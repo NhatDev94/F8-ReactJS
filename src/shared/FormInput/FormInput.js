@@ -9,6 +9,7 @@ function FormInput(props) {
     let [showAction, setShowAction] = useState(showActionDefault)
     let [isDisable, setIsDisable] = useState(disableDefault)
 
+
     function submit() {
         if (input === undefined || input === null || input.trim().length === 0) {
             return

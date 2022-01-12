@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/NhatDev94/f8/static/css/main.49db7160.css",
-    "main.js": "/NhatDev94/f8/static/js/main.29aba9a9.js",
-    "static/js/787.7e64fb18.chunk.js": "/NhatDev94/f8/static/js/787.7e64fb18.chunk.js",
-    "index.html": "/NhatDev94/f8/index.html",
-    "main.49db7160.css.map": "/NhatDev94/f8/static/css/main.49db7160.css.map",
-    "main.29aba9a9.js.map": "/NhatDev94/f8/static/js/main.29aba9a9.js.map",
-    "787.7e64fb18.chunk.js.map": "/NhatDev94/f8/static/js/787.7e64fb18.chunk.js.map"
+    "main.css": "/F8-ReactJS/static/css/main.49db7160.css",
+    "main.js": "/F8-ReactJS/static/js/main.52acfd60.js",
+    "static/js/787.7e64fb18.chunk.js": "/F8-ReactJS/static/js/787.7e64fb18.chunk.js",
+    "index.html": "/F8-ReactJS/index.html",
+    "main.49db7160.css.map": "/F8-ReactJS/static/css/main.49db7160.css.map",
+    "main.52acfd60.js.map": "/F8-ReactJS/static/js/main.52acfd60.js.map",
+    "787.7e64fb18.chunk.js.map": "/F8-ReactJS/static/js/787.7e64fb18.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.49db7160.css",
-    "static/js/main.29aba9a9.js"
+    "static/js/main.52acfd60.js"
   ]
 }

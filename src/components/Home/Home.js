@@ -7,7 +7,6 @@ import Hero from './Hero/Hero'
 import * as api from '../../api/api'
 
 import './home.css'
-import { useNavigate } from "react-router-dom";
 
 
 function Home(props) {

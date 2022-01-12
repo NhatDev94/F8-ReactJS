@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import * as api from '../../../api/api'
 
 import './hero.css'
@@ -71,14 +72,14 @@ function Hero(props) {
                                         <p>
                                             {hero.description}
                                         </p>
-                                        <a
-                                            href="#"
+                                        <Link
+                                            to="/"
                                             onMouseOver={e => mouserOver(e, hero)}
                                             onMouseLeave={e => mouserLeave(e)}
-                                        >{hero.buttonText}</a>
+                                        >{hero.buttonText}</Link>
                                     </div>
                                     <div className="img">
-                                        <img src={hero.img} />
+                                        <img src={hero.img} alt='F8' />
                                     </div>
                                 </div>
                             )

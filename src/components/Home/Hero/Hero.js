@@ -74,7 +74,7 @@ function Hero(props) {
                                             {hero.description}
                                         </p>
                                         <Link
-                                            to="/"
+                                            to="/F8-ReactJS"
                                             onMouseOver={e => mouserOver(e, hero)}
                                             onMouseLeave={e => mouserLeave(e)}
                                         >{hero.buttonText}</Link>

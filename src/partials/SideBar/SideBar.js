@@ -12,7 +12,7 @@ function SideBar(props) {
                     <i className="fas fa-plus"></i>
                 </li>
                 <li className={pathname === '/' ? "sidebar-item active" : "sidebar-item"}>
-                    <Link to="/">
+                    <Link to="/F8-ReactJS">
                         <i className="fas fa-home"></i>
                         <p>Home</p>
                     </Link>

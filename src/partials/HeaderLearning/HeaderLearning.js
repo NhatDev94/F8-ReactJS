@@ -8,11 +8,11 @@ function HeaderLearning(props) {
     return (
         <div className="header flex">
             <div className="header-left flex">
-                <Link to="/">
+                <Link to="/F8-ReactJS">
                     <i className="fas fa-angle-left"></i>
                 </Link>
                 <div className="logo">
-                    <Link to="/"><img src="https://fullstack.edu.vn/assets/images/f8_text_logo.png" alt="logo" /></Link>
+                    <Link to="/F8-ReactJS"><img src="https://fullstack.edu.vn/assets/images/f8_text_logo.png" alt="logo" /></Link>
                 </div>
                 <div className="course-title">
                     {props.title}

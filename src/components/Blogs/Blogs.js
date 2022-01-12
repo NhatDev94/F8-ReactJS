@@ -30,7 +30,7 @@ function Blogs(props) {
                                         <div className="avatar">
                                             <img src="https://avatar-redirect.appspot.com/google/111127707619781587452?size=400" alt="f8" />
                                         </div>
-                                        <Link to="#">
+                                        <Link to="/F8-ReactJS">
                                             <h6 className="name">Dong Ngo</h6>
                                         </Link>
                                     </div>
@@ -41,7 +41,7 @@ function Blogs(props) {
                                 </div>
                                 <div className="content-box flex">
                                     <div className="left">
-                                        <Link to="">
+                                        <Link to="/F8-ReactJS">
                                             <h2 className="content-title">Thoi gian va dong luc</h2>
                                         </Link>
                                         <p className="content">
@@ -55,7 +55,7 @@ function Blogs(props) {
                                         </div>
                                     </div>
                                     <div className="img">
-                                        <Link to="">
+                                        <Link to="/F8-ReactJS">
                                             <img src="https://cdn.fullstack.edu.vn/f8-production/blog_posts/1671/61b6368a3a089.jpg" alt="f8" />
                                         </Link>
                                     </div>

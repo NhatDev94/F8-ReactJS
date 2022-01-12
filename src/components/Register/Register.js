@@ -28,7 +28,17 @@ function Register(props) {
         'http://daihocthuyhanoi.edu.vn/assets/uploads/news/images/anh-dom-chan-scaled-e1630913055964-696x446.jpg',
         'https://daohieu.com/wp-content/uploads/2020/05/meo-con.jpg',
         'https://petshopzuzu.com/wp-content/uploads/2021/10/meo-anh-long-ngan.jpg',
-        'https://thudaumot.edu.vn/wp-content/uploads/2021/03/cach-cham-soc-meo-con.jpg'
+        'https://thudaumot.edu.vn/wp-content/uploads/2021/03/cach-cham-soc-meo-con.jpg',
+        'http://hanoimoi.com.vn/Uploads/images/phananh/2020/06/05/ronaldo.jpg',
+        'https://image-us.24h.com.vn/upload/1-2022/images/2022-01-11/beck-3-1641886736-689-width640height480.jpg',
+        'https://znews-photo.zadn.vn/w660/Uploaded/neg_yslewlx/2020_09_19/gettyimages_928117626_e1533912275830_1.jpg',
+        'https://www.focus2move.com/wp-content/uploads/2020/08/Tesla-Roadster-2020-1024-03.jpg',
+        'https://www.motorbiscuit.com/wp-content/uploads/2021/09/Aston-Martin-Valkyrie-1024x681.jpg',
+        'https://stimg.cardekho.com/images/carexteriorimages/630x420/Lamborghini/Urus/4418/Lamborghini-Urus-V8/1621927166506/front-left-side-47.jpg',
+        'https://znews-photo.zadn.vn/w660/Uploaded/ngogtn/2020_10_05/AnneHathawayHotwallpaperhd.jpg',
+        'https://znews-photo.zadn.vn/w660/Uploaded/bzwvopcg/2020_11_24/nangthoo.jpg',
+        'https://housedesign.vn/wp-content/uploads/2019/12/phong-cach-kien-truc.jpg',
+        'https://danviet.mediacdn.vn/2020/11/4/logo-1-1604488421903112547204.jpg'
     ]
 
     async function register() {

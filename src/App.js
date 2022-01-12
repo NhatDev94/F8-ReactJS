@@ -51,7 +51,7 @@ function App() {
         <p className='notice-text'>Success</p>
       </div>
       <Routes>
-        <Route path="/F8-ReactJS" element={<Home
+        <Route path="/" element={<Home
           user={user}
           logOut={logOut} />} />
         <Route path="/learning/:id" element={user ? <Learning user={user} /> : <Login login={login} />} />

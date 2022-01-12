@@ -13,6 +13,9 @@ function FormInput(props) {
         if (input === undefined || input === null || input.trim().length === 0) {
             return
         }
+        if (props.addComment) {
+            setShowAction(false)
+        }
         props.getInput(input)
         setInput('')
     }

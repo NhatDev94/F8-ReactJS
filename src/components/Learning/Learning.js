@@ -14,18 +14,25 @@ function Learning(props) {
     let [currLesson, setCurrLesson] = useState({})
 
     useEffect(() => {
-        async function getCourseAndCurrLesson() {
+        async function getCourse() {
             const res = await api.getCourseById(param.id)
+            setCourse(res)
+
             res.lessons.forEach(lesson => {
-                if (lesson.begin) {
+                if (lesson.begin === true) {
                     setCurrLesson(lesson)
-                    getCommentsByLessonId(lesson.lessonId)
+                    getComments(lesson.lessonId)
                     return
                 }
             })
-            setCourse(res)
         }
-        getCourseAndCurrLesson()
+
+        async function getComments(lessonId) {
+            const comments = await api.getCommentsByLessonId(lessonId)
+            setComments(comments)
+        }
+
+        getCourse()
     }, [])
 
     function navHandle(e) {
@@ -48,11 +55,6 @@ function Learning(props) {
         }
     }
 
-    async function getCommentsByLessonId(lessonId) {
-        const res = await api.getCommentsByLessonId(lessonId)
-        setComments(res)
-    }
-
     async function addComment(input) {
         const comment = {
             author: props.user.name,
@@ -60,16 +62,29 @@ function Learning(props) {
             authorImg: props.user.img,
             body: input,
             recomments: [],
-            time: "2 ngay truoc",
+            time: new Date().getTime(),
             commentId: Math.random(),
             lessonId: currLesson.lessonId
         }
         const res = await api.postComment(comment)
-        getCommentsByLessonId(currLesson.lessonId)
+        getComments()
     }
 
-    function lessonHandle(target) {
+    async function getComments() {
+        const res = await api.getCommentsByLessonId(currLesson.lessonId)
+        setComments(res)
+    }
 
+    async function lessonHandle(target, index) {
+        course.lessons.forEach(lesson => {
+            lesson.begin = false
+        })
+        course.lessons[index].begin = true
+        const res = await api.putCourse(course.id, course)
+        const data = await api.getCourseById(param.id)
+        setCurrLesson(course.lessons[index])
+        const comments = await api.getCommentsByLessonId(course.lessons[index].lessonId)
+        setComments(comments)
     }
 
     return (
@@ -103,7 +118,7 @@ function Learning(props) {
                             <span>Tham gia nhóm <Link to="https://www.facebook.com/groups/f8official">Học lập trình tại F8</Link> trên Facebook để cùng nhau trao đổi trong quá trình học tập ❤️</span>
                             <span>Các bạn subscribe kênh Youtube <Link to="https://www.youtube.com/c/F8VNOfficial">F8 Official</Link> để nhận thông báo khi có các bài học mới nhé ❤️</span>
                             <div className="list-comment-header flex">
-                                <h4>608 hỏi đáp</h4>
+                                <h4>{comments.length} hỏi đáp</h4>
                                 <div className="social flex">
                                     <p>CHIA SẺ</p>
                                     <i className="fab fa-facebook"></i>
@@ -126,7 +141,7 @@ function Learning(props) {
                                                 return <Comment
                                                     comment={comment}
                                                     key={index}
-                                                    getCommentsByLessonId={getCommentsByLessonId}
+                                                    getComments={getComments}
                                                     user={props.user} />
                                             }
                                         })
@@ -146,9 +161,9 @@ function Learning(props) {
                                             <div 
                                                 key={index} 
                                                 className={lesson.begin ? "lesson active" : "lesson"}
-                                                onClick={(e) => lessonHandle(e.target)}
+                                                onClick={(e) => lessonHandle(e.target, index)}
                                             >
-                                                <h6 className="lesson-title">{index}. {lesson.name}</h6>
+                                                <h6 className="lesson-title">{index + 1}. {lesson.name}</h6>
                                                 <span className="time">{lesson.time}</span>
                                             </div>
                                         )
@@ -169,8 +184,12 @@ function Learning(props) {
                             {
                                 course.lessons && course.lessons.map((lesson, index) => {
                                     return (
-                                        <div key={index} className={lesson.begin ? "lesson active" : "lesson"}>
-                                            <h6 className="lesson-title">{index}. {lesson.name}</h6>
+                                        <div 
+                                            key={index} 
+                                            className={lesson.begin ? "lesson active" : "lesson"}
+                                            onClick={e => lessonHandle(e.target, index)}
+                                        >
+                                            <h6 className="lesson-title">{index + 1}. {lesson.name}</h6>
                                             <span className="time">{lesson.time}</span>
                                         </div>
                                     )

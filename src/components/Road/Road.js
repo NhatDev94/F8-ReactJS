@@ -35,7 +35,7 @@ function Road(props) {
                                     Trước tiên, chúng ta sẽ tìm hiểu về phương pháp học lập trình, kỹ năng đặt
                                     mục tiêu và các khái niệm kỹ thuật như: domain, client, server.
                                 </p>
-                                <Link to="/F8-ReactJS">Chi tiết</Link>
+                                <Link to="/">Chi tiết</Link>
                             </div>
                         </div>
                         <div className="road-item flex">
@@ -48,7 +48,7 @@ function Road(props) {
                                     Lập trình viên Front-end là người xây dựng ra giao diện websites. Trong phần
                                     này F8 sẽ chia sẻ cho bạn lộ trình để trở thành lập trình viên Front-end nhé.
                                 </p>
-                                <Link to="/F8-ReactJS">Chi tiết</Link>
+                                <Link to="/">Chi tiết</Link>
                             </div>
                         </div>
                         <div className="road-item flex">
@@ -62,7 +62,7 @@ function Road(props) {
                                     công việc thường nặng tính logic hơn. Chúng ta sẽ cùng tìm hiểu thêm về lộ trình
                                     học Back-end nhé.
                                 </p>
-                                <Link to="/F8-ReactJS">Chi tiết</Link>
+                                <Link to="/">Chi tiết</Link>
                             </div>
                         </div>
                     </div>

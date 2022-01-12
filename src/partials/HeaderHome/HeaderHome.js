@@ -47,12 +47,12 @@ function HeaderHome(props) {
     return (
         <div className='header-home flex'>
             <div className="left flex">
-                <Link to="/F8-ReactJS" className="logo">
+                <Link to="/" className="logo">
                     <img src="https://fullstack.edu.vn/assets/icon/f8_icon.png" alt="F8" />
                 </Link>
                 <div className="back flex">
                     <p className={pathname === '/' ? "" : "hide"}>Học lập trình để đi làm</p>
-                    <Link to="/F8-ReactJS" className={pathname === '/' ? 'hide' : 'flex'} >
+                    <Link to="/" className={pathname === '/' ? 'hide' : 'flex'} >
                         <i className="fas fa-angle-left"></i>
                         <p>QUAY LẠI</p>
                     </Link>
@@ -84,7 +84,7 @@ function HeaderHome(props) {
                                             </div>
                         }
                         <div className='menu-nav'>
-                            <Link onClick={e => hideMenu(e.target)} to="/F8-ReactJS">
+                            <Link onClick={e => hideMenu(e.target)} to="/">
                                 <div className='menu-nav-item'>
                                     <i className="fas fa-home"></i>
                                     Trang chủ
@@ -111,7 +111,7 @@ function HeaderHome(props) {
                         </div>
                         {
                             props.user && <div className='tag'>
-                                                <Link onClick={e => hideMenu(e.target)} to="/F8-ReactJS">
+                                                <Link onClick={e => hideMenu(e.target)} to="/">
                                                     <div className='tag-item'>
                                                         <i className="fas fa-flag"></i>
                                                         Bài viết đã lưu
@@ -120,13 +120,13 @@ function HeaderHome(props) {
                                             </div>
                         }
                         <div className='tag'>
-                            <Link onClick={e => hideMenu(e.target)} to="/F8-ReactJS">
+                            <Link onClick={e => hideMenu(e.target)} to="/">
                                 <div className='tag-item'>
                                     <i className="fas fa-info-circle"></i>
                                     Giới thiệu
                                 </div>
                             </Link>
-                            <Link onClick={e => hideMenu(e.target)} to="/F8-ReactJS">
+                            <Link onClick={e => hideMenu(e.target)} to="/">
                                 <div className='tag-item'>
                                     <i className="fas fa-users"></i>
                                     Cơ hội việc làm
@@ -175,14 +175,14 @@ function HeaderHome(props) {
                             </div>
                         </div>
                         <div className='tag'>
-                            <Link to="/F8-ReactJS">Viết blog</Link>
-                            <Link to="/F8-ReactJS">Bài viết của tôi</Link>
+                            <Link to="/">Viết blog</Link>
+                            <Link to="/">Bài viết của tôi</Link>
                         </div>
                         <div className='tag'>
-                            <Link to="/F8-ReactJS">Bài viết đã lưu</Link>
+                            <Link to="/">Bài viết đã lưu</Link>
                         </div>
                         <div className='tag'>
-                            <Link to="/F8-ReactJS">Cài đặt</Link>
+                            <Link to="/">Cài đặt</Link>
                             <Link to="/login" onClick={logOut}>Đăng xuất</Link>
                         </div>
                     </div>

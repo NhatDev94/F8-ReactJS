@@ -39,6 +39,17 @@ export async function getCourseById(courseId) {
     return course
 }
 
+export async function putCourse(id, course) {
+    const res = await fetch(`${COURSE_URL}/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(course)
+    })
+    return res
+}
+
 // VIDEOS and BLOGS
 export async function getBlogsAndVideos(signal) {
     const res = await fetch(VIDEO_BLOGS_URL, {signal}).then(res => res.json())

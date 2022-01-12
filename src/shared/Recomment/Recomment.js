@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
 import * as api from '../../api/api'
+import * as time from '../../service/time'
+
 import FormInput from '../FormInput/FormInput'
 
 
@@ -10,6 +12,8 @@ function Recomment(props) {
     let [showDrop, setShowDrop] = useState(false)
     let [showAdd, setShowAdd] = useState(false)
     let [showEdit, setShowEdit] = useState(false)
+
+    let timeRecomment = time.getTimeAgo(props.recomment.time)
 
     useEffect(() => {
         window.addEventListener('click', toggleDropdow)
@@ -75,7 +79,7 @@ function Recomment(props) {
                     <div className='recomment-action flex'>
                         <p>Thích</p>
                         <p onClick={showFormAdd}>Trả lời</p>
-                        <p className='disable'>vài giây tới</p>
+                        <p className='disable'>{timeRecomment}</p>
                         <div className='drop-icon'>
                             <i
                                 className="show-drop fas fa-ellipsis-h"

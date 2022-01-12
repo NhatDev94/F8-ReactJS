@@ -3,6 +3,7 @@ import FormInput from '../FormInput/FormInput'
 import Recomment from '../Recomment/Recomment'
 
 import * as api from '../../api/api'
+import * as time from '../../service/time'
 
 import './comment.css'
 
@@ -10,6 +11,8 @@ function Comment(props) {
     let [showDrop, setShowDrop] = useState(false)
     let [showAdd, setShowAdd] = useState(false)
     let [showEdit, setShowEdit] = useState(false)
+
+    let timeComment = time.getTimeAgo(props.comment.time)
     
     useEffect(() => {
         window.addEventListener('click', toggleDropdow)
@@ -64,7 +67,7 @@ function Comment(props) {
             authorId: props.user.userId,
             authorImg: props.user.img,
             body: input,
-            time: 'vai giay truoc',
+            time: new Date().getTime(),
             like: 122
         }
         let comment = props.comment
@@ -83,6 +86,9 @@ function Comment(props) {
         props.getComments()
     }
 
+    
+
+
 
     return (
         <div className='comment'>
@@ -98,7 +104,7 @@ function Comment(props) {
                     <div className='comment-action flex'>
                         <p>Thích</p>
                         <p onClick={showFormAdd}>Trả lời</p>
-                        <p className='disable'>vài giây tới</p>
+                        <p className='disable'>{timeComment}</p>
                         <div className='drop-icon'>
                             <i
                                 className="show-drop fas fa-ellipsis-h"

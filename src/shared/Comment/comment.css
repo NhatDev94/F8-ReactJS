@@ -1,0 +1,191 @@
+.comment {
+    width: 100%;  
+    margin-bottom: 20px;
+}
+
+.comment .user-img {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.comment .user-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.comment .comment-right {
+    padding-left: 20px;
+}
+
+.comment .comment-body {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background: #f2f3f5;
+    margin-bottom: 5px;
+}
+
+.comment .comment-body h6 {
+    font-size: 14px;
+    padding-bottom: 8px;
+}
+
+.comment .comment-body p {
+    font-size: 14px;
+}
+
+.comment .comment-action {
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.comment .comment-action p {
+    padding-right: 15px;
+    font-size: 13px;
+    color: #e87a5a;
+}
+
+.comment .comment-action p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.comment .comment-action p.disable {
+    color: black;
+    opacity: 0.6;
+    cursor: unset;
+}
+
+.comment .comment-action p.disable:hover {
+    text-decoration: none;
+}
+
+.comment .comment-action .drop-icon {
+    position: relative;
+}
+
+.comment .comment-action .drop-icon > i {
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.comment .comment-action .drop-icon > i:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.comment .comment-action .drop-dow {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 5px 0px;
+    border-radius: 10px;
+    background: white;
+    z-index: 9;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+    animation: showDrop 0.3s forwards;
+}
+
+@keyframes showDrop {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(15px);
+    }
+}
+
+.comment .comment-action .drop-dow .drop-item {
+    min-width: 200px;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.comment .comment-action .drop-dow .drop-item:hover {
+    cursor: pointer;
+    background: #f2f3f5;
+}
+
+.comment .comment-action .drop-dow .drop-item p {
+    padding-left: 10px;
+    font-size: 14px;
+    color: black;
+    opacity: 0.7;
+    text-decoration: none;
+}
+
+.comment .form {
+    max-width: 600px;
+    padding-left: 60px;
+}
+
+.comment .list-recomment {
+    padding-left: 60px;
+}
+
+.comment .list-recomment .recomment-wrap {
+    padding-left: 20px;
+    border-left: 1px solid #e87a5a;
+}
+
+/* ========================== */
+
+
+@media screen and (max-width: 767px) {
+
+    
+}
+
+@media screen and (max-width: 577px) {
+    .comment .list-recomment {
+        padding-left: 40px;
+    }
+
+    .comment .list-recomment .recomment-wrap {
+        padding-left: 5px;
+    }
+
+    .comment .user-img {
+        width: 30px;
+        min-width: 30px;
+        height: 30px;
+    }
+    .comment .comment-right {
+        padding-left: 10px;
+    }
+
+    .comment .comment-body h6 {
+        font-size: 12px;
+        padding-bottom: 5px;
+    }
+
+    .comment .comment-body p {
+        font-size: 12px;
+    }
+
+    .comment .comment-action p {
+        padding-right: 10px;
+        font-size: 10px;
+    }
+
+    .comment .comment-action .drop-dow .drop-item {
+        min-width: 150px;
+        padding: 5px 10px;
+    }
+
+    .comment .comment-action .drop-dow .drop-item i {
+        font-size: 12px;
+    }
+
+    .comment .comment-action .drop-dow .drop-item p {
+        font-size: 12px;
+    }
+
+    .comment .form {
+        padding-left: 35px;
+    }
+}

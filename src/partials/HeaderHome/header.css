@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: space-between;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.1);
+    z-index: 9;
 }
 
 .header-home .left {
@@ -172,12 +173,17 @@
     position: relative;
 }
 
-.header-home .right .user .img{
+.header-home .right .user .img {
     width: 24px;
     height: 24px;
     overflow: hidden;
     border-radius: 50%;
     margin-left: 20px;
+}
+
+.header-home .right .user .img img {
+    width: 100%;
+    height: 100%;
 }
 
 .header-home .right .user img:hover {
@@ -206,15 +212,30 @@
     margin-right: 15px;
     width: 50px;
     height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+}
+
+.header-home .right .user-profile .img img {
+    width: 100%;
+    height: 100%;
 }
 
 .header-home .right .user-profile h6 {
     font-size: 16px;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .header-home .right .user-profile p.email {
     font-size: 15px;
     opacity: 0.6;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .header-home .right .user-profile .tag {
@@ -283,9 +304,10 @@
         top: 0;
         left: 0%;
         transform: translateX(-100%);
-        z-index: 2;
+        z-index: 9;
         background: white;
         transition: all 0.5s;
+        padding-bottom: 40px;
     }
 
     .header-home .left .menu-content .img {
@@ -294,6 +316,11 @@
         border-radius: 50%;
         overflow: hidden;
         margin: 50px;
+    }
+
+    .header-home .left .menu-content .img img {
+        width: 100%;
+        height: 100%;
     }
 
     .header-home .left .menu-nav,
@@ -330,6 +357,12 @@
     }
 }
 
+@media screen and (max-width: 991px) {
+    .header-home .left .tag-login {
+        margin-top: 40px;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .header-home .center .search {
         display: none;
@@ -342,6 +375,7 @@
     .header-home .left .menu .menu-search {
         display: block;
         padding: 0 30px;
+        margin-top: 80px;
     }
 
     .header-home .left .menu .search {
@@ -372,10 +406,27 @@
         opacity: 0.4;
         font-size: 14px;
     }
+
+    .header-home .left .tag-login {
+        margin-top: 10px;
+    }
 }
 
 @media screen and (max-width: 577px) {
     .header-home .left .menu-content {
         width: 100vw;
+    }
+
+    .header-home .right .notice .notice-content {
+        width: 300px;
+        min-height: 150px;
+    }
+
+    .header-home .right .notice .notice-content .notice-title {
+        font-size: 16px;
+    }
+
+    .header-home .right .notice .notice-content span {
+        font-size: 13px;
     }
 }

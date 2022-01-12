@@ -1,0 +1,118 @@
+.scroll-wrap {
+    width: 100%;
+    position: relative;
+    scroll-behavior: smooth;
+    padding: 0 60px;
+    margin-bottom: 50px;
+}
+
+.scroll-wrap:hover .control {
+    display: block;
+}
+
+.scroll-wrap .title-box {
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.scroll-wrap .title-box .title {
+    font-size: 28px;
+}
+
+.scroll-wrap .title-box a {
+    align-items: flex-end;
+    color: #f05123;
+}
+
+.scroll-wrap .title-box a i {
+    padding-left: 5px;
+    margin-bottom: 2px;
+}
+
+.scroll-wrap .control {
+    width: 100%;
+    display: none;
+}
+
+.scroll-wrap .control .arrow {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: white;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-wrap .control .pre {
+    left: 0;
+    display: none;
+}
+
+.scroll-wrap .control .next {
+    right: 0;
+}
+
+.scroll-wrap .scroll-content {
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.scroll-wrap .scroll-content .item {
+    width: 30%;
+    min-width: 30%;
+    margin-right: 25px;
+    padding-bottom: 10px;
+}
+
+/* =========================== */
+
+
+@media screen and (max-width: 1023px) {
+    .scroll-wrap {
+        padding: 0 25px;
+    }
+
+    .scroll-wrap .scroll-content .item {
+        width: 40%;
+        min-width: 40%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .scroll-wrap .title-box .title {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .scroll-wrap .scroll-content .item {
+        width: 60%;
+        min-width: 60%;
+    }
+}
+
+@media screen and (max-width: 577px) {
+    .scroll-wrap .title-box .title {
+        font-size: 20px;
+    }
+
+    .scroll-wrap .title-box a {
+        font-size: 14px;
+    }
+
+    .scroll-wrap .scroll-content .item {
+        width: 80%;
+        min-width: 80%;
+    }
+}
+
+@media screen and (max-width: 319px) {
+}

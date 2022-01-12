@@ -1,0 +1,61 @@
+
+.course .course-img {
+    width: 100%;
+}
+
+.course .course-img img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.course .course-title {
+    font-size: 19px;
+    font-weight: 500;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    color: black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.course .view {
+    font-size: 15px;
+    opacity: 0.7;
+    padding-bottom: 10px;
+}
+
+.course .view i {
+    padding-right: 10px;
+}
+
+/* =========================== */
+
+
+@media screen and (max-width: 1023px) {
+    
+}
+
+@media screen and (max-width: 991px) {
+    
+}
+
+@media screen and (max-width: 767px) {
+    .course .course-title {
+        font-size: 15px;
+        padding-bottom: 10px;
+    }
+    
+    .course .view {
+        font-size: 14px;
+        padding-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 577px) {
+    
+}
+
+@media screen and (max-width: 319px) {
+
+}

@@ -1,0 +1,162 @@
+.form-input {
+    width: 100%;
+    min-height: 85px;
+}
+
+.form-input .user-img {
+    width: 36px;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.form-input .user-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.form-input .user-small {
+    width: 24px;
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.form-input .user-small img {
+    width: 100%;
+    height: 100%;
+}
+
+.form-input .form-content {
+    width: 100%;
+}   
+
+.form-input .form-content input {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+}
+
+.form-input .form-content .insert:hover {
+    cursor: pointer;
+}
+
+.form-input .form-content .insert:hover p {
+    opacity: 1;
+}
+
+.form-input .form-content .insert i {
+    font-size: 13px;
+    opacity: 0.8;
+    margin-right: 5px;
+    margin-top: 3px;
+}
+
+.form-input .form-content .action {
+    justify-content: space-between;
+}
+
+.form-input .form-content .action p {
+    font-size: 13px;
+    opacity: 0.6;
+    font-weight: 5  00;
+}
+
+.form-input .form-content .action button {
+    outline: none;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.form-input .form-content .action button:hover {
+    cursor: pointer;
+}
+
+.form-input .form-content .action .cancel {
+    color: #777;
+    background: none;
+}
+
+.form-input .form-content .action .cancel:hover {
+    background: #ebebeb;
+}
+
+.form-input .form-content .action .submit {
+    color: white;
+    background: #f05123;
+}
+
+.form-input .form-content .action .disable {
+    outline: none;
+    border: none;
+    margin-right: 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 5px;
+    background: #ccc;
+    color: white;
+}
+
+/* ======================= */
+
+@media screen and (max-width: 767px) {
+    .form-input .form-content input {
+        font-size: 14px;
+    }
+
+    .form-input .form-content .action button {
+        padding: 8px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 577px) {
+    .form-input .user-img {
+        width: 30px;
+        min-width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+
+    .form-input .user-small {
+        margin-right: 5px;
+    }
+
+    .form-input .form-content input {
+        font-size: 12px;
+    }
+
+    .form-input .form-content input::placeholder {
+        font-size: 12px;
+    }
+
+    .form-input .form-content .insert i {
+        font-size: 11px;
+    }
+
+    .form-input .form-content .action p {
+        font-size: 11px;
+    }
+
+    .form-input .form-content .action button {
+        padding: 6px 8px;
+        margin-right: 6px;
+        border-radius: 20px;
+        font-size: 10px;
+    }
+
+}

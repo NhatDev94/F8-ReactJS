@@ -2,22 +2,33 @@
     width: 100vw;
 }
 
-.main {
-    width: 100%;
-    position: fixed;
-    top: 66px;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
+.subscriber {
+    padding-left: 60px;
+    padding-bottom: 15px;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 400;
+    font-size: 15px;
+    padding-top: 40px;
 }
 
-.sidebar-wrap {
-    width: 8.33333%;
-    min-width: 85px;
-    height: 100vh;
+.subscriber span {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 700;
 }
 
-.home-content {
-    width: 91.66667%;
-    height: 100vh;
+/* ====================== */
+
+@media screen and (max-width: 991px) {
+    .sidebar-wrap {
+        display: none;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .subscriber {
+        padding-left: 25px;
+    }
 }

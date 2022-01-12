@@ -1,0 +1,20 @@
+.not-found {
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.not-found p {
+    font-size: 102px;
+    font-weight:700;
+}
+
+.not-found span {
+    font-size: 24px;
+    font-weight: 600;
+}

@@ -1,4 +1,4 @@
-.login {
+.register {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.2);
@@ -8,7 +8,7 @@
     background-repeat: no-repeat;
 }
 
-.login .form-login {
+.register .form-register {
     width: 600px;
     height: 100%;
     margin: 0 auto;
@@ -19,26 +19,27 @@
     justify-content: center;
 }
 
-.login .form-login .login-img {
+.register .form-register .register-img {
     margin: 0 auto;
     width: 44px;
     height: 44px;
 }
 
-.login .form-login h2 {
+.register .form-register h2 {
     font-size: 28px;
     padding-top: 20px;
     margin-bottom: 20px;
 }
 
-.login .form-login .input-box {
+.register .form-register .input-box {
     width: 50%;
     position: relative;
+    background: silver;
     margin: 0 auto;
     margin-top: 20px;
 }
 
-.login .form-login .input-box input {
+.register .form-register .input-box input {
     width: 100%;
     padding: 10px 10px 10px 35px;
     outline: none;
@@ -47,7 +48,7 @@
     font-size: 15px;
 }
 
-.login .form-login .input-box i {
+.register .form-register .input-box i {
     position: absolute;
     top: 50%;
     left: 0;
@@ -56,13 +57,13 @@
     font-size: 14px;
 }
 
-.login .form-login span {
+.register .form-register span {
     width: 50%;
     font-size: 11px;
     color: #ff5014;
 }
 
-.login .form-login .submit {
+.register .form-register .submit {
     padding: 9px 20px;
     outline: none;
     border: none;
@@ -71,21 +72,21 @@
     color: white;
     font-size: 15px;
     font-weight: 500;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
-.login .form-login .submit:hover {
+.register .form-register .submit:hover {
     cursor: pointer;
     opacity: 0.8;
 }
 
-.login .form-login p {
+.register .form-register p {
     margin-top: 40px;
     font-size: 14px;
     color: black;
 }
 
-.login .form-login p a {
+.register .form-register p a {
     color: #ff5014;
     font-weight: 500;
 }

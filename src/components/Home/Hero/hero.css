@@ -1,0 +1,193 @@
+.hero {
+    width: 100%;
+    position: relative;
+    padding: 0 16px;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    z-index: 1;
+}
+
+.hero-wrap {
+    padding: 0 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    z-index: 2;
+}
+
+.hero .arrow:hover {
+    cursor: pointer;
+}
+
+.hero .pre {
+    left: 0;
+}
+
+.hero .next {
+    right: 0;
+}
+
+.hero .control {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    padding-left: 60px;
+}
+
+.hero .control span {
+    display: inline-block;
+    width: 30px;
+    height: 8px;
+    border-radius: 5px;
+    background: #dce0e3;
+    margin-right: 10px;
+}
+
+.hero .control span.active {
+    background: #b3bcc3;
+    width: 50px;
+}
+
+.hero .hero-content {
+    width: 100%;
+    height: 270px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero .hero-item {
+    width: 100%;
+    min-width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    align-items: center;
+}
+
+.hero .hero-content .description {
+    width: 65%;
+    padding-left: 40px;
+    color: white;
+}
+
+.hero .hero-content .description h2 {
+    font-size: 36px;
+}
+
+.hero .hero-content .description p {
+    margin: 10px 0;
+    margin-bottom: 20px;
+    font-size: 17px;
+    max-width: 70%;
+}
+
+.hero .hero-content .description a {
+    color: white;
+    padding: 4px 10px;
+    padding-bottom: 7px;
+    border-radius: 20px;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    font-weight: 600;
+}
+
+.hero .img {
+    width: 35%;
+}
+
+.hero .img img {
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ================ */
+
+@media screen and (max-width: 1023px) {
+    
+}
+
+@media screen and (max-width: 991px) {
+    .hero {
+        padding-bottom: 10px;
+    }
+
+    .hero .control {
+        padding-left: 15px;
+    }
+
+    .hero .hero-content .description {
+        width: 100%;
+    }
+
+    .hero .img {
+        width: 0%;
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .hero .hero-content {
+        height: 250px;
+    }
+
+    .hero .hero-content .description h2 {
+        font-size: 32px;
+    }
+
+    .hero .hero-content .description p {
+        font-size: 15px;
+    }
+
+    .hero .hero-content .description a {
+        font-size: 15px;
+        font-weight: 600;
+    }
+}
+
+@media screen and (max-width: 577px) {
+    .hero .hero-content {
+        height: 200px;
+    }
+
+    .hero .hero-content .description h2 {
+        font-size: 20px;
+    }
+
+    .hero .hero-content .description p {
+        font-size: 12px;
+    }
+
+    .hero .hero-content .description a {
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .hero .control span {
+        height: 6px;
+        width: 20px;
+    }
+
+    .hero .control span.active {
+        width: 30px;
+    }
+}
+
+@media screen and (max-width: 319px) {
+    
+}

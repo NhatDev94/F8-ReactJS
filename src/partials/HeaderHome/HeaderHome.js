@@ -1,24 +1,33 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useHistory } from 'react-router-dom'
 
 import './header.css'
 
-function HeaderHome({ isLogin }) {
+function HeaderHome(props) {
     let [isShowNotice, setIsShowNotice] = useState(false)
     let [isShowProfile, setIsShowProfile] = useState(false)
     let {pathname} = useLocation()
-    
 
+    let i = props.user && props.user.email.indexOf('@')
+    let emailLeft = props.user && props.user.email.substring(0, i)
+    
     useEffect(() => {
-        window.addEventListener('click', e => {
-            if (!e.target.matches('.notice') && !e.target.matches('.notice i')) {
-                setIsShowNotice(false)
-            }
-            if (!e.target.matches('.user .img') && !e.target.matches('.user .img img')) {
-                setIsShowProfile(false)
-            }
-        })
+        window.addEventListener('click', clickHandle)
+        return () => window.removeEventListener('click', clickHandle)
     }, [])
+
+    function logOut() {
+        props.logOut()
+    }
+
+    function clickHandle(e) {
+        if (!e.target.matches('.notice') && !e.target.matches('.home .notice i')) {
+            setIsShowNotice(false)
+        }
+        if (!e.target.matches('.user .img') && !e.target.matches('.user .img img')) {
+            isShowProfile && setIsShowProfile(false)
+        }
+    }
 
 
     function showMenu(target) {
@@ -53,15 +62,27 @@ function HeaderHome({ isLogin }) {
                     <div className='overlay' onClick={e => hideMenu(e.target)}></div>
                     <div className='menu-content'>
                         <i className="hide-menu fas fa-arrow-left" onClick={e => hideMenu(e.target)}></i>
-                        <div className='img'>
-                            <img src='https://cdn.fullstack.edu.vn/f8-production/user_photos/118755/61834b48637a8.jpg' alt='F8' />
-                        </div>
+                        {
+                            props.user && <div className='img'>
+                                                <img src={props.user && props.user.img} alt='F8' />
+                                            </div>
+                        }
                         <div className='menu-search'>
                             <div className="search">
                                 <i className="fas fa-search"></i>
                                 <input placeholder="Tìm kiếm khóa học, bài viết, video, ..." />
                             </div>
                         </div>
+                        {
+                            !props.user && <div className='tag tag-login'>
+                                                <Link to="/login">
+                                                    <div className='tag-item'>
+                                                        <i className="fas fa-sign-in-alt"></i>
+                                                        Đăng nhập
+                                                    </div>
+                                                </Link>
+                                            </div>
+                        }
                         <div className='menu-nav'>
                             <Link onClick={e => hideMenu(e.target)} to="/">
                                 <div className='menu-nav-item'>
@@ -71,53 +92,57 @@ function HeaderHome({ isLogin }) {
                             </Link>
                             <Link onClick={e => hideMenu(e.target)} to="/road">
                                 <div className='menu-nav-item'>
-                                    <i className="fas fa-home"></i>
+                                    <i className="fas fa-hiking"></i>
                                     Lộ trình
                                 </div>
                             </Link>
                             <Link onClick={e => hideMenu(e.target)} to="/courses">
                                 <div className='menu-nav-item'>
-                                    <i className="fas fa-home"></i>
+                                    <i className="fas fa-lightbulb"></i>
                                     Khóa học
                                 </div>
                             </Link>
                             <Link onClick={e => hideMenu(e.target)} to="/blogs">
                                 <div className='menu-nav-item'>
-                                    <i className="fas fa-home"></i>
+                                    <i className="fas fa-newspaper"></i>
                                     Đọc Blog
                                 </div>
                             </Link>
                         </div>
+                        {
+                            props.user && <div className='tag'>
+                                                <Link onClick={e => hideMenu(e.target)} to="/">
+                                                    <div className='tag-item'>
+                                                        <i className="fas fa-flag"></i>
+                                                        Bài viết đã lưu
+                                                    </div>
+                                                </Link>
+                                            </div>
+                        }
                         <div className='tag'>
                             <Link onClick={e => hideMenu(e.target)} to="/">
                                 <div className='tag-item'>
-                                    <i className="fas fa-home"></i>
-                                    Bài viết đã lưu
-                                </div>
-                            </Link>
-                        </div>
-                        <div className='tag'>
-                            <Link onClick={e => hideMenu(e.target)} to="/">
-                                <div className='tag-item'>
-                                    <i className="fas fa-home"></i>
+                                    <i className="fas fa-info-circle"></i>
                                     Giới thiệu
                                 </div>
                             </Link>
                             <Link onClick={e => hideMenu(e.target)} to="/">
                                 <div className='tag-item'>
-                                    <i className="fas fa-home"></i>
+                                    <i className="fas fa-users"></i>
                                     Cơ hội việc làm
                                 </div>
                             </Link>
                         </div>
-                        <div className='tag'>
-                            <Link onClick={e => hideMenu(e.target)} to="/">
-                                <div className='tag-item'>
-                                    <i className="fas fa-home"></i>
-                                    Đăng xuất
-                                </div>
-                            </Link>
-                        </div>
+                        {
+                            props.user && <div className='tag'>
+                                                <Link to="/login" onClick={e => hideMenu(e.target)}>
+                                                    <div className='tag-item' onClick={logOut}>
+                                                        <i className="fas fa-sign-out-alt"></i>
+                                                        Đăng xuất
+                                                    </div>
+                                                </Link>
+                                            </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -128,25 +153,25 @@ function HeaderHome({ isLogin }) {
                 </div>
             </div>
             <div className="right flex">
-                <div className={isLogin ? "notice" : "hide"}>
+                <div className={props.user ? "notice" : "hide"}>
                     <i className="fas fa-bell" onClick={() => setIsShowNotice(!isShowNotice)}></i>
                     <div className={isShowNotice ? 'notice-content' : 'hide'}>
                         <h6 className='notice-title'>Thông báo</h6>
                         <span>Chưa có thông báo nào.</span>
                     </div>
                 </div>
-                <div className={isLogin ? "user" : "hide"}>
+                <div className={props.user ? "user" : "hide"}>
                     <div className='img' onClick={() => setIsShowProfile(!isShowProfile)}>
-                        <img src="https://cdn.fullstack.edu.vn/f8-production/user_photos/118755/61834b48637a8.jpg" alt="F8" />
+                        <img src={props.user && props.user.img} alt="F8" />
                     </div>
                     <div className={isShowProfile ? 'user-profile': 'hide'}>
                         <div className='user-info flex'>
                             <div className='img'>
-                                <img src='https://cdn.fullstack.edu.vn/f8-production/user_photos/118755/61834b48637a8.jpg' alt='F8' />
+                                <img src={props.user && props.user.img} alt='F8' />
                             </div>
                             <div>
-                                <h6>Nhat94</h6>
-                                <p className='email'>@nhat94</p>
+                                <h6>{props.user && props.user.name}</h6>
+                                <p className='email'>@{emailLeft}</p>
                             </div>
                         </div>
                         <div className='tag'>
@@ -158,11 +183,11 @@ function HeaderHome({ isLogin }) {
                         </div>
                         <div className='tag'>
                             <Link to="">Cài đặt</Link>
-                            <Link to="">Đăng xuất</Link>
+                            <Link to="/login" onClick={logOut}>Đăng xuất</Link>
                         </div>
                     </div>
                 </div>
-                <Link to="/login" className={isLogin ? "hide" : "login-btn"} >Đăng nhập</Link>
+                <Link to="/login" className={props.user ? "hide" : "login-btn"} >Đăng nhập</Link>
             </div>
         </div>
     )

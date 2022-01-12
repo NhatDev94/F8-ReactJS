@@ -21,6 +21,10 @@ img {
     display: none;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 ::placeholder {
     font-size: 14px;
     font-weight: 300;
@@ -28,9 +32,89 @@ img {
 
 ::-webkit-scrollbar {
     width: 7px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
     background: silver;
     border-radius: 10px;
+}
+
+.notice-fixed {
+    width: 200px;
+    height: 80px;
+    position: fixed;
+    top: 40px;
+    right: 0px;
+    z-index: 99;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    color: green;
+    opacity: 0;
+    box-shadow: 1px 1px 10px 5px rgba(0, 128, 0, 0.2);
+    transition: all 1s;
+}
+
+.success {
+    transform: translateX(-10%);
+    opacity: 1;
+}
+
+.notice-fixed .left {
+    padding-right: 20px;
+}
+
+.notice-fixed .left i {
+    font-size: 36px;
+}
+
+.notice-fixed p {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.main {
+    width: 100%;
+    position: relative;
+    top: 66px;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.sidebar-wrap {
+    width: 8.33333%;
+    min-width: 85px;
+    position: fixed;
+    top: 66;
+    left: 0;
+}
+
+.main-content {
+    width: 91.66667%;
+    padding-right: 25px;
+    padding-top: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* ================== */
+
+@media screen and (max-width: 991px) {
+    .sidebar-wrap {
+        display: none;
+    }
+    
+    .main-content {
+        width: 100%;
+        padding-right: 0;
+        padding-top: 10px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
 }

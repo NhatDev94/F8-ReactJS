@@ -54,12 +54,12 @@ function App() {
         <Route path="/F8-ReactJS" element={<Home
           user={user}
           logOut={logOut} />} />
-        <Route path="/F8-ReactJS/learning/:id" element={user ? <Learning user={user} /> : <Login login={login} />} />
-        <Route path="/F8-ReactJS/road" element={<Road user={user} />} />
-        <Route path="/F8-ReactJS/courses" element={<Courses user={user} />} />
-        <Route path="/F8-ReactJS/blogs" element={<Blogs user={user} />} />
-        <Route path="/F8-ReactJS/login" element={<Login login={login} />} />
-        <Route path="/F8-ReactJS/register" element={<Register success={success} />} />
+        <Route path="/learning/:id" element={user ? <Learning user={user} /> : <Login login={login} />} />
+        <Route path="/road" element={<Road user={user} />} />
+        <Route path="/courses" element={<Courses user={user} />} />
+        <Route path="/blogs" element={<Blogs user={user} />} />
+        <Route path="/login" element={<Login login={login} />} />
+        <Route path="/register" element={<Register success={success} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

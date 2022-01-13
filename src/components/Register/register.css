@@ -90,3 +90,37 @@
     color: #ff5014;
     font-weight: 500;
 }
+
+
+/* ============ */
+
+@media screen and (max-width: 1023px) {
+    .register .form-register {
+        width: 500px;
+    }
+
+    .register .form-register .input-box {
+        width: 300px
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .register .form-register {
+        width: 400px;
+    }
+
+    .register .form-register .input-box {
+        width: 250px
+    }
+}
+
+@media screen and (max-width: 577px) {
+    .register .form-register {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .register .form-register .input-box {
+        width: 250px
+    }
+}

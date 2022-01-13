@@ -60,6 +60,8 @@ body::-webkit-scrollbar {
 .success {
     transform: translateX(-10%);
     opacity: 1;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .notice-fixed .left {

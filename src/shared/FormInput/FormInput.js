@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './formInput.css'
 
 function FormInput(props) {
-    let inputDefault = props.data ? props.data.body : ''
     let showActionDefault = props.addComment ? false : true
     let disableDefault = props.addComment ? true : false
-    let [input, setInput] = useState(inputDefault)
+    let [input, setInput] = useState('')
     let [showAction, setShowAction] = useState(showActionDefault)
     let [isDisable, setIsDisable] = useState(disableDefault)
-
+   
+    useEffect(() => {
+        props.data && setInput(props.data.body)
+    }, []);
 
     function submit() {
         if (input === undefined || input === null || input.trim().length === 0) {
@@ -57,7 +59,7 @@ function FormInput(props) {
                             className='cancel'
                             onClick={cancelHandle}>HỦY</button>
                         <button
-                            className={isDisable && input.trim().length === 0 ? 'disable' : 'submit'}
+                            className={isDisable && input === '' ? 'disable' : 'submit'}
                             onClick={submit}>{props.submitName}</button>
                     </div>
                 </div>

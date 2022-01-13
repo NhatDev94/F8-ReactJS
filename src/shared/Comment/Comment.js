@@ -21,7 +21,7 @@ function Comment(props) {
         return () => {
             window.removeEventListener('click', toggleDropdow)
         }
-    }, [])
+    }, )
 
     function toggleDropdow(e) {
         if (!e.target.matches('.comment .drop-icon') && !e.target.matches('.comment .show-drop')) {
@@ -56,6 +56,8 @@ function Comment(props) {
     }
 
     async function deleteComment() {
+        setShowAdd(false)
+        setShowEdit(false)
         const res = await api.deleteComment(props.comment.id)
         props.getComments()
     }
@@ -134,27 +136,34 @@ function Comment(props) {
             </div>
 
             {/* Form Input Add Recomment*/}
-            <div className={showAdd ? "form" : "hide"}>
-                <FormInput 
-                    getInput={addRecomment} 
-                    submitName="Trả lời" 
-                    hideForm={hideFormAdd}
-                    user={props.user} />
+            <div className="form form-add-recomment">
+                {
+                    showAdd && <FormInput 
+                                    getInput={addRecomment} 
+                                    submitName="Trả lời" 
+                                    hideForm={hideFormAdd}
+                                    user={props.user} 
+                                />
+                }
             </div>
-
-            <div className={showEdit ? 'form' : 'hide'}>
-                <FormInput 
-                    getInput={editComment} 
-                    submitName="Sửa" 
-                    data={props.comment} 
-                    hideForm={hideFormEdit}
-                    user={props.user} />
+            
+            <div className='form'>
+                {
+                    showEdit && <FormInput 
+                                    getInput={editComment} 
+                                    submitName="Sửa" 
+                                    data={props.comment} 
+                                    hideForm={hideFormEdit}
+                                    user={props.user} 
+                                />
+                }
             </div>
+                
             {/* List ReComment */}
             <div className="list-recomment">
                 <div className='recomment-wrap'>
                     {
-                        props.comment.recomments && sort.sortByTime(props.comment.recomments).map((recomment, index) => {
+                        props.comment.recomments && props.comment.recomments.map((recomment, index) => {
                             return <Recomment
                                 key={index}
                                 recomment={recomment}

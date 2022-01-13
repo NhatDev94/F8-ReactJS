@@ -1,11 +1,18 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useHistory } from 'react-router-dom'
+import SearchResult from '../../shared/SearchResult/SearchResult'
+import * as api from '../../api/api'
 
 import './header.css'
 
 function HeaderHome(props) {
     let [isShowNotice, setIsShowNotice] = useState(false)
     let [isShowProfile, setIsShowProfile] = useState(false)
+    let [search, setSearch] = useState('')
+    let [coursesResult, setCoursesResult] = useState([])
+    let [blogsResult, setBlogsResult] = useState([])
+    let [showResult, setShowResult] = useState(false)
+
     let {pathname} = useLocation()
 
     let i = props.user && props.user.email.indexOf('@')
@@ -25,10 +32,15 @@ function HeaderHome(props) {
             setIsShowNotice(false)
         }
         if (!e.target.matches('.user .img') && !e.target.matches('.user .img img')) {
-            isShowProfile && setIsShowProfile(false)
+            setIsShowProfile(false)
+        }
+        if (!e.target.matches('.search') 
+            && !e.target.matches('.search input')
+            && !e.target.matches('.search i')
+            && !e.target.matches('.search .search-result')) {
+            setShowResult(false)
         }
     }
-
 
     function showMenu(target) {
         let menu = target.closest('.menu').querySelector('.menu-content')
@@ -42,6 +54,32 @@ function HeaderHome(props) {
         let overlay = target.closest('.menu').querySelector('.overlay')
         menu.style.transform = 'translateX(-100%)'
         overlay.style.display = 'none'
+    }
+
+    function onChangeHandle(target) {
+        setSearch(target.value)
+        setShowResult(false)
+    }
+
+    async function searchHandle(target) {
+        if (search.trim() === '') return
+        let courses = await api.getCourses()
+        let blogs = await api.getBlogsAndVideos()
+        let coursesResult = []
+        let blogsResult = []
+        courses.forEach(course => {
+            if (course.name.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1) {
+                coursesResult = [...coursesResult, course]
+            }
+        })
+        blogs.forEach(blog => {
+            if (blog.title.toLowerCase().indexOf(search.toLocaleLowerCase()) > -1) {
+                blogsResult = [...blogsResult, blog]
+            }
+        })
+        setCoursesResult(coursesResult)
+        setBlogsResult(blogsResult)
+        setShowResult(true)
     }
 
     return (
@@ -69,8 +107,16 @@ function HeaderHome(props) {
                         }
                         <div className='menu-search'>
                             <div className="search">
-                                <i className="fas fa-search"></i>
-                                <input placeholder="Tìm kiếm khóa học, bài viết, video, ..." />
+                                <i className="menu-search-icon fas fa-search"></i>
+                                <input 
+                                    placeholder="Tìm kiếm khóa học, bài viết, video, ..." 
+                                    value={search}
+                                    onChange={e => onChangeHandle(e.target)}
+                                    onKeyUp={e => e.code === 'Enter' && searchHandle()}
+                                />
+                                <div className={showResult ? 'result' : 'hide'}>
+                                    <SearchResult courses={coursesResult} blogs={blogsResult} search={search} />
+                                </div>
                             </div>
                         </div>
                         {
@@ -148,8 +194,16 @@ function HeaderHome(props) {
             </div>
             <div className="center flex">
                 <div className="search">
-                    <i className="fas fa-search"></i>
-                    <input placeholder="Tìm kiếm khóa học, bài viết, video, ..." />
+                    <i className="search-icon fas fa-search"></i>
+                    <input 
+                        placeholder="Tìm kiếm khóa học, bài viết, video, ..." 
+                        value={search}
+                        onChange={e => onChangeHandle(e.target)}
+                        onKeyUp={e => e.code === 'Enter' && searchHandle(e.target)}
+                    />
+                    <div className={showResult ? 'result' : 'hide'}>
+                        <SearchResult courses={coursesResult} blogs={blogsResult} search={search} />
+                    </div>
                 </div>
             </div>
             <div className="right flex">

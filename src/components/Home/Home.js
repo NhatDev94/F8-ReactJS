@@ -15,30 +15,26 @@ function Home(props) {
 
 
     useEffect(() => {
-        let controler = new AbortController()
-        let signal = controler.signal
         async function getCourses() {
-            const res = await api.getCourses(signal)
+            const res = await api.getCourses()
             setCourses(res)
         }
         
         async function getBlogsAndVideos() {
-            const res = await api.getBlogsAndVideos(signal)
+            const res = await api.getBlogsAndVideos()
             setBlogs(res)
         }
         getCourses()
         getBlogsAndVideos()
 
-        return () => {
-            controler.abort()
-        }
     }, [])
 
     return (
         <div className="home">
             <HeaderHome
                 user={props.user}
-                logOut={props.logOut} />
+                logOut={props.logOut}
+            />
             <div className="main">
                 <div className="sidebar-wrap">
                     <SideBar />
@@ -48,7 +44,8 @@ function Home(props) {
                     <p className='subscriber'><span>122.107+</span> người khác đã học</p>
                     <SlideScroll title="Các khóa học" type="courses" items={courses} to='/courses' />
                     <SlideScroll title="Bài viết nổi bật" type="blogs" items={blogs} to='/blogs' />
-                    <SlideScroll title="Video nổi bật" type="videos" items={blogs} to='/' />
+                    {/* Video chua lam voi */}
+                    {/* <SlideScroll title="Video nổi bật" type="videos" items={blogs} to='#' /> */}
                 </div>
             </div>
             <Footer />

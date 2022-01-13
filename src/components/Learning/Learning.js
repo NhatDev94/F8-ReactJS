@@ -142,7 +142,7 @@ function Learning(props) {
                                 </div>
                                 <div className="comments-wrap">
                                     {
-                                        comments && comments.map((comment, index) => {
+                                        comments && sort.sortByTime(comments).map((comment, index) => {
                                             if (comment.lessonId === currLesson.lessonId) {
                                                 return <Comment
                                                     comment={comment}

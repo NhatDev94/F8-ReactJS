@@ -10,17 +10,12 @@ function Hero(props) {
     let countRef = useRef(0)
 
     useEffect(() => {
-        let controler = new AbortController()
-        let signal = controler.signal
         async function getHeros() {
-            const res = await api.getHeros(signal)
+            const res = await api.getHeros()
             setHeros(res)
         }
         getHeros()
 
-        return () => {
-            controler.abort()
-        }
     }, [])
    
 

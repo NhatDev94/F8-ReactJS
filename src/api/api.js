@@ -22,8 +22,8 @@ export async function regester(user) {
 }
 
 // COURSES
-export async function getCourses(signal) {
-    const res = await fetch(COURSE_URL, {signal}).then(res => res.json())
+export async function getCourses() {
+    const res = await fetch(COURSE_URL).then(res => res.json())
     return res
 }
 
@@ -51,8 +51,8 @@ export async function putCourse(id, course) {
 }
 
 // VIDEOS and BLOGS
-export async function getBlogsAndVideos(signal) {
-    const res = await fetch(VIDEO_BLOGS_URL, {signal}).then(res => res.json())
+export async function getBlogsAndVideos() {
+    const res = await fetch(VIDEO_BLOGS_URL).then(res => res.json())
     return res
 }
 
@@ -100,7 +100,7 @@ export async function deleteComment(id) {
 }
 
 // SLIIDE
-export async function getHeros(signal) {
-    const res = await fetch(HERO_URL, {signal}).then(res => res.json())
+export async function getHeros() {
+    const res = await fetch(HERO_URL).then(res => res.json())
     return res
 }

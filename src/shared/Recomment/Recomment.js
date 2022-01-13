@@ -17,7 +17,6 @@ function Recomment(props) {
 
     useEffect(() => {
         window.addEventListener('click', toggleDropdow)
-
         return () => {
             window.removeEventListener('click', toggleDropdow)
         }
@@ -49,6 +48,7 @@ function Recomment(props) {
 
     function addRecomment(input) {
         setShowAdd(false)
+
         props.addRecomment(input)
     }
 
@@ -62,6 +62,12 @@ function Recomment(props) {
         newComment.recomments[index] = newRecomment
         const res = await api.putComment(props.comment.id, newComment)
         props.getComments()
+    }
+
+    function deleteRecomment() {
+        setShowAdd(false)
+        setShowEdit(false)
+        props.deleteRecomment(props.recomment.recommentId)
     }
 
 
@@ -94,7 +100,7 @@ function Recomment(props) {
                                 </div>
                                 <div
                                     className={props.recomment.authorId === props.user.userId ? 'drop-item flex' : 'hide'}
-                                    onClick={() => props.deleteRecomment(props.recomment.recommentId)}
+                                    onClick={() => deleteRecomment()}
                                 >
                                     <i className="fas fa-trash"></i>
                                     <p>Xóa bình luận</p>
@@ -109,21 +115,27 @@ function Recomment(props) {
                 </div>
             </div>
             {/* Form Input Add Recomment*/}
-            <div className={showAdd ? 'form' : 'hide'}>
-                <FormInput 
-                    submitName="Trả lời"
-                    getInput={addRecomment}
-                    hideForm={hideFormAdd}
-                    user={props.user} />
+            <div className='form'>
+                {
+                    showAdd && <FormInput 
+                                    submitName="Trả lời"
+                                    getInput={addRecomment}
+                                    hideForm={hideFormAdd}
+                                    user={props.user} 
+                                />
+                }
             </div>
 
-            <div className={showEdit ? 'form' : 'hide'} >
-                <FormInput 
-                    data={props.recomment}
-                    submitName="Sửa"
-                    getInput={editRecomment}
-                    hideForm={hideFormEdit}
-                    user={props.user} />
+            <div className='form'>
+                {
+                    showEdit && <FormInput 
+                                    data={props.recomment}
+                                    submitName="Sửa"
+                                    getInput={editRecomment}
+                                    hideForm={hideFormEdit}
+                                    user={props.user} 
+                                />
+                }
             </div>
         </div>
     )

@@ -55,9 +55,9 @@ function App() {
           user={user}
           logOut={logOut} />} />
         <Route path="/learning/:id" element={user ? <Learning user={user} /> : <Login login={login} />} />
-        <Route path="/road" element={<Road user={user} />} />
-        <Route path="/courses" element={<Courses user={user} />} />
-        <Route path="/blogs" element={<Blogs user={user} />} />
+        <Route path="/road" element={<Road user={user} logOut={logOut} />} />
+        <Route path="/courses" element={<Courses logOut={logOut} user={user} />} />
+        <Route path="/blogs" element={<Blogs logOut={logOut} user={user} />} />
         <Route path="/login" element={<Login login={login} />} />
         <Route path="/register" element={<Register success={success} />} />
         <Route path="*" element={<NotFound />} />

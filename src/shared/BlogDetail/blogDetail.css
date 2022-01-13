@@ -1,0 +1,79 @@
+.blogs .blog-item {
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.blogs .blog-item .author-box {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.blogs .blog-item .author-box .author {
+    align-items: center;
+}
+
+.blogs .blog-item .author-box .author h6 {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.blogs .blog-item .author-box .avatar {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.blogs .blog-item .author-box .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blogs .blog-item .action {
+    align-items: center;
+}
+
+.blogs .blog-item .action i {
+    padding-left: 15px;
+    opacity: 0.6;
+}
+
+.blogs .blog-item .action i:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* ============= */
+
+@media screen and (max-width: 577px) {
+    .blog-item .content-box {
+        display: flex;
+        flex-flow: column-reverse;
+    }
+
+    .blog-item .content-box .left {
+        width: 100%;
+    }
+
+    .blog-item .content-box .content-title {
+        padding-top: 5px;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .blog-item .content-box .img {
+        width: 100%;
+        padding-left: 0;
+    }
+
+
+}

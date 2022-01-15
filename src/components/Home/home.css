@@ -26,9 +26,22 @@
     .main-content {
         width: 100%;
         padding: 0 20px;
+        padding-top: 10px;
     }
 
     .subscriber {
         padding-left: 25px;
+    }
+}
+
+@media screen and (max-width: 577px) {
+    .main-content {
+        padding: 0 10px;
+        padding-bottom: 30px;
+    }
+
+    .subscriber {
+        padding-left: 15px;
+        padding-top: 20px;
     }
 }

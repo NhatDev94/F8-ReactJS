@@ -1,6 +1,3 @@
-.blog {
-    
-}
 
 .blog .blog-img {
     width: 100%;
@@ -81,7 +78,10 @@
 }
 
 @media screen and (max-width: 577px) {
-    
+    .blog .author-name {
+        padding: 0;
+        padding-left: 10px;
+    }
 }
 
 @media screen and (max-width: 319px) {

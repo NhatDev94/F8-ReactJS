@@ -163,15 +163,27 @@
 
 @media screen and (max-width: 577px) {
     .hero .hero-content {
-        height: 200px;
+        height: unset;
+    }
+
+    .hero .hero-content .hero-item {
+        padding: 20px 0;
+        min-height: 170px;
+    }
+
+    .hero .hero-content .description {
+        padding-left: 0;
+        padding: 0 20px;
     }
 
     .hero .hero-content .description h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .hero .hero-content .description p {
         font-size: 12px;
+        max-width: 100%;
+        margin-bottom: 10px;
     }
 
     .hero .hero-content .description a {

@@ -15,7 +15,7 @@
     left: 0;
     padding-top: 50px;
     overflow: scroll;
-    padding-bottom: 200px;
+    padding-bottom: 30px;
 }
 
 .learning .left::-webkit-scrollbar {
@@ -25,11 +25,21 @@
 
 .learning .left .video {
     width: 100%;
-    margin: 0 auto;
-    height: 0;
-    padding-bottom: 46.63909%;
+    padding: 0 8.5%;
     background: black;
 }
+
+.player-wrapper {
+    position: relative;
+    padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+  }
+  
+  .react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
 
 .learning .left .left-content {
     padding: 0 80px;
@@ -196,6 +206,10 @@
 @media screen and (max-width: 767px) {
     .learning .left .left-content {
         padding: 0 20px;
+    }
+
+    .learning .left .video {
+        padding: 0;
     }
 
     .learning .left .sub-nav .nav-item {

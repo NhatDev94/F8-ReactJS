@@ -6,9 +6,11 @@ import * as api from '../../api/api'
 import FormInput from "../../shared/FormInput/FormInput";
 import Comment from "../../shared/Comment/Comment";
 import * as sort from '../../service/sort'
+import ReactPlayer from "react-player";
 
 
 import './learning.css'
+import VidyardPlayer from "react-player/vidyard";
 
 function Learning(props) {
     let param = useParams()
@@ -83,7 +85,7 @@ function Learning(props) {
 
     async function getComments() {
         const res = await api.getCommentsByLessonId(currLesson.lessonId)
-        setComments(res)
+        setComments([...res])
     }
 
     async function lessonHandle(index) {
@@ -99,7 +101,15 @@ function Learning(props) {
             <div className="learning-main flex">
                 <div className="left">
                     <div className="video">
-                        VIDEO
+                        <div className='player-wrapper'>
+                            <ReactPlayer
+                                className='react-player'
+                                url='https://www.youtube.com/watch?v=DpvYHLUiZpc'
+                                width='100%'
+                                height='100%'
+                                controls={true}
+                            />
+                        </div>
                     </div>
                     <div className="left-content">
                         <div className="sub-nav flex">

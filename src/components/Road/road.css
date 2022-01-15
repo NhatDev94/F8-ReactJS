@@ -114,7 +114,7 @@
 
 @media screen and (max-width: 577px) {  
     .road .road-left {
-        padding: 0 25px;
+        padding: 0 10px;
     }
 
     .road .road-left .road-item {

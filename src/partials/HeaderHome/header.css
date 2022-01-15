@@ -274,7 +274,7 @@
     color: white;
     background: #f05123;
     opacity: 0.9;
-    padding: 7px 16px;
+    padding: 7px 16px 10px;
     border-radius: 5px;
     font-size: 15px;
     font-weight: 600;
@@ -434,6 +434,10 @@
 @media screen and (max-width: 577px) {
     .header-home .left .menu-content {
         width: 100vw;
+    }
+
+    .header-home .right {
+        width: 60%;
     }
 
     .header-home .right .notice .notice-content {

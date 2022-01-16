@@ -58,6 +58,7 @@ function Comment(props) {
     async function deleteComment() {
         setShowAdd(false)
         setShowEdit(false)
+        props.comment.recomments = []
         const res = await api.deleteComment(props.comment.id)
         props.getComments()
     }

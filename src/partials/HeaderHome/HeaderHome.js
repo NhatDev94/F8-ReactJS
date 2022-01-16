@@ -28,7 +28,7 @@ function HeaderHome(props) {
     }
 
     function clickHandle(e) {
-        if (!e.target.matches('.notice') && !e.target.matches('.home .notice i')) {
+        if (!e.target.matches('.notice') && !e.target.matches('.notice i')) {
             setIsShowNotice(false)
         }
         if (!e.target.matches('.user .img') && !e.target.matches('.user .img img')) {
@@ -62,6 +62,7 @@ function HeaderHome(props) {
     }
 
     async function searchHandle(target) {
+        console.log(target);
         if (search.trim() === '') return
         let courses = await api.getCourses()
         let blogs = await api.getBlogsAndVideos()
@@ -107,7 +108,10 @@ function HeaderHome(props) {
                         }
                         <div className='menu-search'>
                             <div className="search">
-                                <i className="menu-search-icon fas fa-search"></i>
+                                <i 
+                                    className="menu-search-icon fas fa-search"
+                                    onClick={e => searchHandle(e.target)}
+                                ></i>
                                 <input 
                                     placeholder="Tìm kiếm khóa học, bài viết, video, ..." 
                                     value={search}
@@ -194,7 +198,10 @@ function HeaderHome(props) {
             </div>
             <div className="center flex">
                 <div className="search">
-                    <i className="search-icon fas fa-search"></i>
+                    <i 
+                        className="search-icon fas fa-search"
+                        onClick={e => searchHandle(e.target)}
+                    ></i>
                     <input 
                         placeholder="Tìm kiếm khóa học, bài viết, video, ..." 
                         value={search}
